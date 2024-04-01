@@ -1,10 +1,15 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Creating a EC2 with cloudformation
+Parameters:
+  KeyName:
+    Description: The EC2 Key Pair to allow SSH access to the instance
+    Type: 'AWS::EC2::KeyPair::KeyName'
 Resources:
   EC2firstcf:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0c101f26f147fa7fd
+      KeyName: !Ref KeyName
       InstanceType: t2.micro
       SubnetId: subnet-012ef143a1f743cae
       Tags:
