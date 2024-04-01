@@ -1,8 +1,4 @@
-template-file-path: ./ec2_cf.yml
-
-parameters: 
-    KeyName: elk_test
-    # task_size: x-small
-    # max_capacity: 5
-    # port: 8080
-    # env: production
+template-file-path: ec2_cf.yml
+parameters:
+  KeyName: elk_test
+tags: {}
