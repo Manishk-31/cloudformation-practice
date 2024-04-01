@@ -10,3 +10,5 @@ Resources:
       Tags:
         - Key: "Owner"
           Value: "Manish"
+        - Key: "Name"
+          Value: "Test-cf-ec2"
