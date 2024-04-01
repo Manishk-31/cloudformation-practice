@@ -17,3 +17,8 @@ Resources:
           Value: "Manish"
         - Key: "Name"
           Value: "Test-cf-ec2"
+
+  S3sampleBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !GetAtt EC2firstcf.InstanceId
