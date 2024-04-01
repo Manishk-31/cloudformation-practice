@@ -3,9 +3,7 @@ Description: Creating a EC2 with cloudformation
 Parameters:
   KeyName:
     Description: The EC2 Key Pair to allow SSH access to the instance
-    #Type: 'AWS::EC2::KeyPair::KeyName'
-    Type: String
-    Default: m-keypair-cf
+    Type: 'AWS::EC2::KeyPair::KeyName'
 Resources:
   EC2firstcf:
     Type: AWS::EC2::Instance
