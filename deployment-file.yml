@@ -1,8 +1,4 @@
-template-file-path: ./ec2_cf.yml
+template-file-path: ./lambda.yml
 
 parameters: 
-    KeyName: elk_test
-
-tags:
-    Owner: 'Manish'
-    Name: 'Test-cf-EC2'
+    bucketforlambda: lambda-bucket-mk

@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Creating a Lambda function
+Parameters:
+  bucketforlambda:
+    Description: Bucket where I have placed the lambda code
+    Type: string
+    Default: lambda-bucket-mk
+Resources:
+  testlambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: lambda.lambda_handler
+      Role: !GetAtt MyLambdaExecutionRole.Arn
+      Code:
+        S3Bucket: !Ref bucketforlambda
+        S3Key: lambda.py
+      Runtime: python3.8
+      Timeout: 30
+  MyLambdaExecutionRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: 'sts:AssumeRole'
+      Policies:
+        - PolicyName: LambdaExecutionPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogGroup'
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource: 'arn:aws:logs:*:*:*'
+                
