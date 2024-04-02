@@ -3,7 +3,7 @@ Description: Creating a Lambda function
 Parameters:
   bucketforlambda:
     Description: Bucket where I have placed the lambda code
-    Type: string
+    Type: String
     Default: lambda-bucket-mk
 Resources:
   testlambda:
