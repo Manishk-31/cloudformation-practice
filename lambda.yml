@@ -13,7 +13,7 @@ Resources:
       Role: !GetAtt MyLambdaExecutionRole.Arn
       Code:
         S3Bucket: !Ref bucketforlambda
-        S3Key: lambda.py
+        S3Key: lambda.zip
       Runtime: python3.8
       Timeout: 30
   MyLambdaExecutionRole:
